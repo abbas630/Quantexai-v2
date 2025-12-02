@@ -1,0 +1,226 @@
+/* * QUANTEX AI - ONYX & SLATE THEME (Phase 3)
+ * Strategy: Stealth Wealth, Performance First
+ */
+
+:root {
+    /* "Stealth Wealth" Palette */
+    --bg-void: #000000;       /* True OLED Black */
+    --bg-surface: #0a0a0a;    /* Slightly lighter for contrast */
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    
+    /* Accents */
+    --accent-blue: #2997ff;   /* Action Color */
+    --border-slate: #334155;  /* Structural Grey */
+    
+    /* "Fast Glass" - No Blur, High Opacity */
+    --glass-fast: rgba(20, 20, 24, 0.95);
+    
+    /* Typography */
+    --font-base: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    --spacing-container: clamp(20px, 5vw, 60px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: var(--font-base);
+    font-size: 18px; /* Bumped for legibility */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+.section-padding { padding: 100px var(--spacing-container); max-width: 1200px; margin: 0 auto; }
+.full-width { width: 100%; display: block; }
+
+/* The "Fast Glass" Card - Optimized for Mobile FPS */
+.fast-glass {
+    background: var(--glass-fast);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.fast-glass:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+/* CTA Buttons */
+.cta-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 6px; /* Squarer, more business-like */
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-primary:hover {
+    background: #1a80e0;
+}
+
+.cta-primary.cta-small { padding: 10px 20px; font-size: 14px; }
+.cta-text { color: var(--text-secondary); margin-left: 20px; font-weight: 500; }
+.cta-text:hover { color: #fff; }
+
+/* =========================================
+   HEADER
+   ========================================= */
+.main-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px var(--spacing-container);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo { height: 32px; width: auto; filter: brightness(1.2); }
+
+.main-nav ul { list-style: none; display: flex; gap: 40px; align-items: center; }
+.main-nav a { font-size: 15px; color: var(--text-secondary); font-weight: 500; }
+.main-nav a:hover { color: #fff; }
+
+.nav-toggle, .mobile-close-nav { display: none; }
+
+/* =========================================
+   HERO (Static & Bold)
+   ========================================= */
+.hero-section {
+    min-height: 80vh;
+    display: flex; align-items: center;
+    padding: 0 var(--spacing-container);
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 70%); /* Subtle depth */
+}
+
+.hero-title {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.hero-sub {
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   PAIN POINTS TICKER
+   ========================================= */
+.ticker-section {
+    background: var(--bg-surface);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-wrapper { display: inline-block; animation: scroll 20s linear infinite; }
+.ticker-item { color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+.ticker-separator { margin: 0 30px; color: #333; }
+
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* =========================================
+   SERVICES GRID
+   ========================================= */
+.section-header { margin-bottom: 60px; }
+.section-title { font-size: 32px; margin-bottom: 10px; }
+.section-subtitle { color: var(--text-secondary); }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.service-label { 
+    display: block; font-size: 11px; text-transform: uppercase; 
+    color: var(--accent-blue); letter-spacing: 1px; margin-bottom: 8px; 
+}
+.service-card h3 { font-size: 24px; margin-bottom: 16px; }
+.service-card p { color: var(--text-secondary); font-size: 16px; }
+
+/* =========================================
+   TRUST / PRICING
+   ========================================= */
+.trust-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 30px; text-align: center; }
+.metric-value { display: block; font-size: 42px; font-weight: 700; color: #fff; }
+.metric-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; }
+.trust-statement { text-align: center; font-style: italic; color: var(--text-secondary); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+.center-align { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.pricing-card { max-width: 400px; width: 100%; text-align: left; }
+.pricing-card .price { font-size: 32px; color: var(--accent-blue); font-weight: 700; margin: 10px 0 20px 0; }
+.price-features { list-style: none; margin-bottom: 30px; }
+.price-features li { margin-bottom: 12px; color: var(--text-secondary); }
+
+/* =========================================
+   CONTACT & FOOTER
+   ========================================= */
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-form input, .contact-form textarea {
+    width: 100%; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15);
+    padding: 14px; border-radius: 6px; color: #fff; margin-bottom: 20px;
+    font-family: inherit; font-size: 16px;
+}
+.contact-form label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-secondary); }
+
+.main-footer { padding: 40px var(--spacing-container); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; text-align: center; color: #444; font-size: 14px; }
+
+/* =========================================
+   MOBILE / RESPONSIVE
+   ========================================= */
+.sticky-whatsapp-bar {
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    background: #25D366; color: #fff; padding: 12px;
+    text-align: center; font-weight: 600; z-index: 9999;
+    display: none; box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+}
+.sticky-whatsapp-bar a { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.wa-icon img { width: 24px; height: 24px; }
+
+@media (max-width: 768px) {
+    /* Layout */
+    .hero-section { min-height: auto; padding: 120px 20px 60px 20px; text-align: left; }
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .section-padding { padding: 60px 20px; }
+    
+    /* Typography */
+    .hero-title { font-size: 42px; }
+    
+    /* Nav */
+    .nav-toggle { display: block; background: none; border: none; cursor: pointer; }
+    .hamburger-icon { width: 24px; height: 2px; background: #fff; position: relative; }
+    .hamburger-icon::before, .hamburger-icon::after { content: ''; position: absolute; width: 24px; height: 2px; background: #fff; left: 0; }
+    .hamburger-icon::before { top: -8px; } 
+    .hamburger-icon::after { top: 8px; }
+    
+    .main-nav {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: var(--bg-surface); padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .main-nav.is-open { display: block; }
+    .main-nav ul { flex-direction: column; align-items: flex-start; gap: 20px; }
+    
+    /* Elements */
+    .sticky-whatsapp-bar { display: block; } /* Only show on mobile */
+    .mobile-close-nav { display: none; } /* Simplified nav logic */
+    .hero-actions { display: flex; flex-direction: column; gap: 20px; }
+    .cta-text { margin-left: 0; }
+}
